@@ -1,0 +1,52 @@
+.butn {
+
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    font-weight: bolder;
+    
+
+
+
+}
+.butn:hover{
+    background-color:white;
+    height: 55px;
+    width: 55px;
+    border-radius: 100%;
+    
+}
+
+.butn0 {
+    width: 100px;
+    height: 50px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    font-weight: bolder;
+
+
+}
+.butn0:hover{
+    background-color:coral;
+    height: 55px;
+    width: 105px;
+    border-radius: 25px;
+}
+.btnbgclr {
+    background-color: gray;
+}
+
+.btnbgclr1 {
+    background-color: chocolate;
+}
+
+.btnbgclr2 {
+    background-color: darkgrey;
+}

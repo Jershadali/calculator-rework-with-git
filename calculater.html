@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>claculator</title>
+    <link rel="stylesheet" href="style.css">
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container-fluid bg-dark   d-flex justify-content-center align-items-center "
+    style="height:100vh ; width: 100vw;">
+    <div style="height: 450px ; width: 350px ; background-color:black; ">
+        <div class="container-fluid    d-flex justify-content-center align-items-center"
+            style="width: 350px; height: 100px; background-color: black;">
+            <input type="text" style="height:80px ; width:340px ;" id="numbDsplay" >
+
+        </div>
+        <div class="container-fluid d-flex justify-content-between align-content-around"
+            style="width: 340px; height: 340px; background-color: black; margin-top: 5px;">
+            <div class="container-fluid d-flex flex-wrap justify-content-around align-content-around"
+                style="width: 273px; height: 337px; background-color:black; ">
+                <button class="butn btnbgclr" onclick="clears()">AC</button>
+                <button class="butn btnbgclr">+/-</button >
+                <button class="butn btnbgclr" onclick="onOperatorClick('%')">%</button >
+                <button class="butn btnbgclr1" onclick="onOperatorClick('/')">÷</button >
+                <button class="butn btnbgclr2" onclick="displaynumber(7)">7</button >
+                <button class="butn btnbgclr2" onclick="displaynumber(8)">8</button >
+                <button class="butn btnbgclr2" onclick="displaynumber(9)">9</button >
+                <button class="butn btnbgclr1" onclick="onOperatorClick('*')">×</button >
+                <button class="butn btnbgclr2" onclick="displaynumber(4)">4</button >
+                <button class="butn btnbgclr2" onclick="displaynumber(5)">5</button >
+                <button class="butn btnbgclr2" onclick="displaynumber(6)">6</button >
+                <button class="butn btnbgclr1" onclick="onOperatorClick('-')">-</button >
+                <button class="butn btnbgclr2" onclick="displaynumber(1)">1</button >
+                <button class="butn btnbgclr2" onclick="displaynumber(2)">2</button >
+                <button class="butn btnbgclr2" onclick="displaynumber(3)">3</button >
+                <button class="butn btnbgclr1" onclick="onOperatorClick('+')">+</button >
+                <button class="butn btnbgclr2" onclick="displaynumber('.')">.</button >
+                <button class="butn btnbgclr2" onclick="displaynumber(0)">0</button >
+                <button class="butn0 btnbgclr1" onclick="calculate()">=</button >
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+    var number1 = "";
+    var lastOperator = "";
+    var  mode = "new";
+
+    function displaynumber(numb) {
+        var displayTextbox = document.getElementById("numbDsplay");
+
+        if (mode == "new"){
+            displayTextbox.value = numb;
+        }
+        else{
+            displayTextbox.value = displayTextbox.value + numb;
+        }
+        mode = "append"
+            
+        
+    }
+    function onOperatorClick(operator) {
+        if ( number1 !== ""){
+            calculate() 
+        }
+        lastOperator = operator;
+        var displayTextbox = document.getElementById("numbDsplay");
+        number1 = displayTextbox.value;
+
+        mode = "new"
+    }
+    function calculate() {
+        var displayTextbox = document.getElementById("numbDsplay");
+        var number2 = displayTextbox.value;
+        var result = "";
+        if (lastOperator == '+') {
+            result = Number(number1) + Number(number2);
+        }
+        else if (lastOperator == '-') {
+            result = Number(number1) - Number(number2);
+
+        }
+        else if (lastOperator == '*') {
+            result = Number(number1) * Number(number2);
+
+        }
+        else if (lastOperator == '/') {
+            result = Number(number1) / Number(number2);
+
+        }
+        else if (lastOperator == '%') {
+            result = Number(number1) % Number(number2);
+
+        }
+        
+
+
+
+
+            displayTextbox.value = result;
+            number1 = "";
+
+        }
+        function clears(){
+            document.getElementById("numbDsplay").value="0";
+            number1 = "";
+            mode = "new"
+            lastOperator = "";
+        }
+
+
+
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+    
+</body>
+</html>
